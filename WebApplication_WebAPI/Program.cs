@@ -1,8 +1,15 @@
+using HomeAPI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 using WebApplication_WebAPI.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Подключаем автомаппинг
+var assembly = Assembly.GetAssembly(typeof(MappingProfile));
+builder.Services.AddAutoMapper(assembly);
 
 // Add services to the container.
 
